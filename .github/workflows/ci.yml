@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: ["dev", "stable"]
+  pull_request:
+    branches: ["dev", "stable"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build (${{ matrix.name }})
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows x64
+            os: windows-latest
+            rid: win-x64
+          - name: Linux x64
+            os: ubuntu-latest
+            rid: linux-x64
+          - name: macOS x64
+            os: macos-latest
+            rid: osx-x64
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        run: dotnet restore Fleasociety.csproj
+
+      - name: Test
+        run: dotnet test --configuration Release --verbosity normal
+
+      - name: Publish
+        run: >
+          dotnet publish Fleasociety.csproj
+          --configuration Release
+          --runtime ${{ matrix.rid }}
+          --self-contained true
+          -p:PublishSingleFile=false
+          -p:DebugType=None
+          -p:DebugSymbols=false
+          -o "${{ runner.temp }}/publish"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: fleasociety-${{ matrix.rid }}
+          path: ${{ runner.temp }}/publish/
+          if-no-files-found: error
+          retention-days: 1
