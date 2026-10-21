@@ -1,19 +1,30 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
     <RollForward>Major</RollForward>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>false</PublishSingleFile>
     <PublishReadyToRun>false</PublishReadyToRun>
     <TieredCompilation>false</TieredCompilation>
   </PropertyGroup>
+  
   <PropertyGroup>
+    <Year>$([System.DateTime]::Now.Year.ToString())</Year>
+    <Authors>KiwifruitDev</Authors>
+    <Copyright>Copyright © KiwifruitDev $(Year). All rights reserved.</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>res/Icon.ico</ApplicationIcon>
   </PropertyGroup>
+
   <ItemGroup>
     <None Remove="res/Icon.ico" />
     <None Remove="res/Icon.bmp" />
   </ItemGroup>
+
   <ItemGroup>
     <EmbeddedResource Include="res/Icon.ico">
       <LogicalName>Icon.ico</LogicalName>
@@ -22,13 +33,22 @@
       <LogicalName>Icon.bmp</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="LICENSE">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <TargetPath>LICENSE.txt</TargetPath>
+    </None>
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="MLEM" Version="8.1.0" />
     <PackageReference Include="MLEM.Data" Version="8.1.0" />
     <PackageReference Include="MLEM.Ui" Version="8.1.0" />
     <PackageReference Include="MonoGame.Extended" Version="6.1.1" />
-    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.*" />
-    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.*" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.5.1" />
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.5.1" />
     <PackageReference Include="Steamworks.NET" Version="2024.8.0" />
   </ItemGroup>
 </Project>

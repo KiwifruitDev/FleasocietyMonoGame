@@ -1,28 +1,21 @@
-Proprietary License for Fleasociety
+MIT License
 
 Copyright (c) 2026 KiwifruitDev
-All rights reserved.
 
-The following copyright notice and license are provided to partners
-intending to contribute to assets or source code for the Fleasociety
-video game. Reviewing the source code implies you have agreed to and
-signed an additional permission notice and/or non-disclosure agreement.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-This source code is strictly proprietary. Unauthorized distribution,
-copying, or publication of the original source code files, in whole
-or in part, via any medium, is strictly prohibited.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Permission is granted to reverse engineer, decompile, or disassemble
-compiled binaries or executables derived from this software. This
-permission does not grant permission to distribute or publish the
-original source code or substantial portions thereof.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT,
-TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW.
-
-A copy of this copyright notice and these terms must accompany all
-authorized distributions of the source code, substantial portions
-thereof, and compiled binaries originating from this source code,
-to the extent permitted by applicable law.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
