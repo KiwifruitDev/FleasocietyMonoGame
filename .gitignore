@@ -427,3 +427,11 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# FMOD
+/projects/fmod/**/.cache/
+/projects/fmod/**/.unsaved/
+/projects/fmod/**/.user/
+/projects/fmod/**/.restore/
+fmod_editor.log
+fmod.log

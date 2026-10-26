@@ -10,6 +10,27 @@
 
 #-------------------------------- References --------------------------------#
 
+/reference:..\pipeline-references\MonoGame.Extended.Content.Pipeline.dll
+/reference:..\pipeline-references\MonoGame.Extended.dll
 
 #---------------------------------- Content ---------------------------------#
+
+#begin ../projects/fmod/fleasociety/Build/Desktop/Music.bank
+/copy:../projects/fmod/fleasociety/Build/Desktop/Music.bank;audio/Music.bank
+
+#begin ../projects/fmod/fleasociety/Build/Desktop/Music.strings.bank
+/copy:../projects/fmod/fleasociety/Build/Desktop/Music.strings.bank;audio/Music.strings.bank
+
+#begin ../projects/paint.net/concept.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/processorParam:Version=3.8.6.0
+/build:../projects/paint.net/concept.png;graphics/concept.png
 
