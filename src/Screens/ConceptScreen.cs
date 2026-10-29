@@ -6,6 +6,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.Screens;
+using Fleasociety.Graphics;
+using Fleasociety.Systems;
 
 namespace Fleasociety.Screens;
 
@@ -33,6 +35,12 @@ public class ConceptScreen : GameScreen
     {
         _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp);
         _spriteBatch.Draw(_conceptTexture, Vector2.Zero, Color.White);
+
+        if (FontManager.IsLoaded)
+        {
+            TextRenderer.DrawShadowed(_spriteBatch, FontManager.MunroSmall, "Concept", Color.White, new Vector2(10, 10));
+        }
+
         _spriteBatch.End();
     }
 }

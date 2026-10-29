@@ -34,3 +34,19 @@
 /processorParam:Version=3.8.6.0
 /build:../projects/paint.net/concept.png;graphics/concept.png
 
+#begin fonts/munro-small.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/processorParam:Version=3.8.6.0
+/build:fonts/munro-small.spritefont
+
+#begin fonts/munro.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/processorParam:Version=3.8.6.0
+/build:fonts/munro.spritefont
+

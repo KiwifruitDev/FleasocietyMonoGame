@@ -6,11 +6,10 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGame.Extended.BitmapFonts;
 using MonoGame.Extended.Screens;
 using MonoGame.Extended.Tweening;
-using Fleasociety.Systems;
 using Fleasociety.Graphics;
+using Fleasociety.Systems;
 
 namespace Fleasociety.Screens;
 
@@ -71,28 +70,21 @@ public class PauseScreen : GameScreen
 
     public override void Draw(GameTime gameTime)
     {
-        if (_fade.Alpha > 0)
+        if (_fade.Alpha <= 0)
         {
-            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
-            var overlay = new Rectangle(0, 0, Game1.BaseWidth, Game1.BaseHeight);
-            _spriteBatch.Draw(GlobalTextures.WhitePixel, overlay, Color.Black * _fade.Alpha);
-            _spriteBatch.End();
+            return;
         }
 
-        if (_fade.Alpha > 0 && FontManager.IsLoaded && FontManager.MunroFont != null)
+        _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
+
+        var overlay = new Rectangle(0, 0, Game1.BaseWidth, Game1.BaseHeight);
+        _spriteBatch.Draw(GlobalTextures.WhitePixel, overlay, Color.Black * _fade.Alpha);
+
+        if (FontManager.IsLoaded)
         {
-            _spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
-
-            BitmapFont font = FontManager.MunroFont;
-            const string text = "PAUSED";
-            var textSize = font.MeasureString(text);
-            var position = new Vector2(
-                (Game1.BaseWidth - textSize.Width) / 2,
-                (Game1.BaseHeight - textSize.Height) / 2);
-            var textColor = new Color(Color.White, (byte)(255 * _fade.Alpha));
-
-            _spriteBatch.DrawString(font, text, position, textColor);
-            _spriteBatch.End();
+            TextRenderer.DrawCentered(_spriteBatch, FontManager.Munro, "Paused", Color.White, _fade.Alpha);
         }
+
+        _spriteBatch.End();
     }
 }

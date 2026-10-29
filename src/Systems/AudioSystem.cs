@@ -31,7 +31,7 @@ public class AudioSystem : IDisposable
     /// <summary>
     /// Master volume (0.0 to 1.0)
     /// </summary>
-    public float MasterVolume { get; set; } = 1.0f;
+    public float MasterVolume { get; set; } = 0.5f;
     
     /// <summary>
     /// Whether audio is initialized
@@ -172,7 +172,7 @@ public class AudioSystem : IDisposable
         _originalVolume = MasterVolume;
         _lerpDuration = fadeDuration;
         _lerpStartVolume = MasterVolume;
-        _targetVolume = 0.5f;
+        _targetVolume = 0.25f;
         _lerpProgress = 0f;
         _isLerping = true;
     }

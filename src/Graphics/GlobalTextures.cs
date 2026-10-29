@@ -23,7 +23,7 @@ public static class GlobalTextures
     public static void Initialize(GraphicsDevice graphicsDevice)
     {
         WhitePixel = new Texture2D(graphicsDevice, 1, 1);
-        WhitePixel.SetData(new[] { Microsoft.Xna.Framework.Color.White });
+        WhitePixel.SetData([Microsoft.Xna.Framework.Color.White]);
     }
     
     /// <summary>
